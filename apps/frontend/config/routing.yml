@@ -1,3 +1,8 @@
+# apps/frontend/config/routing.yml
+job:
+  class:   sfPropelRouteCollection
+  options: { model: JobeetJob }
+ 
 job_show_user:
   url:     /job/:company_slug/:location_slug/:id/:position_slug
   class:   sfPropelRoute
@@ -6,6 +11,7 @@ job_show_user:
   requirements:
     id: \d+
     sf_method: [get]
+ 
 # default rules
 homepage:
   url:   /
