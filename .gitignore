@@ -1,0 +1,12 @@
+# cache files
+
+cache/*
+
+# log files
+
+log/*
+
+# config files
+
+config/database.yml
+config/propel.ini
