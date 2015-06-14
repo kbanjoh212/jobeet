@@ -15,11 +15,13 @@ class BaseJobeetCategoryFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'name'                           => new sfWidgetFormFilterInput(),
+      'slug'                           => new sfWidgetFormFilterInput(),
       'jobeet_category_affiliate_list' => new sfWidgetFormPropelChoice(array('model' => 'JobeetAffiliate', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'name'                           => new sfValidatorPass(array('required' => false)),
+      'slug'                           => new sfValidatorPass(array('required' => false)),
       'jobeet_category_affiliate_list' => new sfValidatorPropelChoice(array('model' => 'JobeetAffiliate', 'required' => false)),
     ));
 
@@ -65,6 +67,7 @@ class BaseJobeetCategoryFormFilter extends BaseFormFilterPropel
     return array(
       'id'                             => 'Number',
       'name'                           => 'Text',
+      'slug'                           => 'Text',
       'jobeet_category_affiliate_list' => 'ManyKey',
     );
   }

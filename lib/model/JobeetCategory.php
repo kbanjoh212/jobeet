@@ -6,14 +6,30 @@ class JobeetCategory extends BaseJobeetCategory
 	{
 		return $this->getName();
 	}
+	public function getActiveJobsCriteria()
+	{
+		$criteria = new Criteria();
+		$criteria->add(JobeetJobPeer::CATEGORY_ID, $this->getId());
 	
-	
+		return JobeetJobPeer::addActiveJobsCriteria($criteria);
+	}
 	public function getActiveJobs($max = 10)
 	{
-	  $criteria = new Criteria();
-	  $criteria->add(JobeetJobPeer::CATEGORY_ID, $this->getId());
-	  $criteria->setLimit($max);
+		$criteria = $this->getActiveJobsCriteria();
+		$criteria->setLimit($max);
+	
+		return JobeetJobPeer::doSelect($criteria);
+	}	
+	public function countActiveJobs()
+	{
+		$criteria = $this->getActiveJobsCriteria();
+	
+		return JobeetJobPeer::doCount($criteria);
+	}
+	public function setName($name)
+	{
+	  parent::setName($name);
 	 
-	  return JobeetJobPeer::getActiveJobs($criteria);
+	  $this->setSlug(Jobeet::slugify($name));
 	}
 }

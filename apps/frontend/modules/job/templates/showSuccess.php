@@ -1,8 +1,5 @@
-<!-- apps/frontend/modules/job/templates/showSuccess.php -->
-<?php slot('title') ?>
-  <?php echo sprintf('%s is looking for a %s', $job->getCompany(), $job->getPosition()) ?>
-<?php end_slot(); ?>
 <?php use_stylesheet('job.css') ?>
+<?php slot('title', sprintf('%s is looking for a %s', $job->getCompany(), $job->getPosition())) ?>
 <?php use_helper('Text') ?>
  
 <div id="job">
@@ -16,7 +13,7 @@
   <?php if ($job->getLogo()): ?>
     <div class="logo">
       <a href="<?php echo $job->getUrl() ?>">
-        <img src="/uploads/jobs/<?php echo $job->getLogo() ?>"
+        <img src="<?php echo $job->getLogo() ?>"
           alt="<?php echo $job->getCompany() ?> logo" />
       </a>
     </div>
@@ -35,8 +32,6 @@
   </div>
  
   <div style="padding: 20px 0">
-    <a href="<?php echo url_for('job/edit?id='.$job->getId()) ?>">
-      Edit
-    </a>
+    <a href="<?php echo url_for('job/edit?id='.$job->getId()) ?>">Edit</a>
   </div>
 </div>
