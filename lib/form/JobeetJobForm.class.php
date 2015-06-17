@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * JobeetJob form.
+ *
+ * @package    jobeet
+ * @subpackage form
+ * @author     Your name here
+ * @version    SVN: $Id: sfPropelFormTemplate.php 10377 2008-07-21 07:10:32Z dwhittle $
+ */
 class JobeetJobForm extends BaseJobeetJobForm
 {
   public function configure()
@@ -9,8 +17,8 @@ class JobeetJobForm extends BaseJobeetJobForm
       $this['expires_at'], $this['is_activated'],
       $this['token']
     );
-      $this->widgetSchema->setNameFormat('job[%s]');
-      $this->validatorSchema['email'] = new sfValidatorEmail();
+ 
+    $this->validatorSchema['email'] = new sfValidatorEmail();
  
     $this->widgetSchema['type'] = new sfWidgetFormChoice(array(
       'choices' => JobeetJobPeer::$types,
@@ -30,5 +38,7 @@ class JobeetJobForm extends BaseJobeetJobForm
     ));
  
     $this->widgetSchema->setHelp('is_public', 'Whether the job can also be published on affiliate websites or not.');
+    
+    $this->widgetSchema->setNameFormat('job[%s]');
   }
 }

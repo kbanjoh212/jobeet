@@ -13,9 +13,9 @@ $job->save();
 $expiresAt = date('Y-m-d', time() + 86400 * sfConfig::get('app_active_days'));
 $t->is($job->getExpiresAt('Y-m-d'), $expiresAt, '->save() updates expires_at if not set');
  
-$job = create_job(array('expires_at' => '2008-08-08'));
+$job = create_job(array('expires_at' => '2016-08-08'));
 $job->save();
-$t->is($job->getExpiresAt('Y-m-d'), '2008-08-08', '->save() does not update expires_at if set');
+$t->is($job->getExpiresAt('Y-m-d'), '2016-08-08', '->save() does not update expires_at if set');
  
 function create_job($defaults = array())
 {
