@@ -10,5 +10,7 @@ log/*
 
 # config files
 
-config/database.yml
 config/propel.ini
+web/sfPropelPlugin/*
+web/sfProtoculousPlugin/*
+config/databases.yml
