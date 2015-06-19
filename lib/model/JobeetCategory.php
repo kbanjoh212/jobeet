@@ -32,4 +32,10 @@ class JobeetCategory extends BaseJobeetCategory
 	 
 	  $this->setSlug(Jobeet::slugify($name));
 	}
+	public function getLatestPost()
+	{
+		$jobs = $this->getActiveJobs(1);
+	
+		return $jobs[0];
+	}
 }

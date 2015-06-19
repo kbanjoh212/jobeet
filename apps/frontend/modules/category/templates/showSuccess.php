@@ -37,3 +37,6 @@
     - page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
   <?php endif; ?>
 </div>
+<div class="feed">
+ <a href="<?php echo url_for('category', array('sf_subject' => $category, 'sf_format' => 'atom')) ?>">Feed</a>
+</div>
