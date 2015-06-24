@@ -1,4 +1,8 @@
 # apps/frontend/config/routing.yml
+job_search:
+  url:   /search
+  param: { module: job, action: search }
+
 category:
   url:      /category/:slug.:sf_format
   class:    sfPropelRoute
