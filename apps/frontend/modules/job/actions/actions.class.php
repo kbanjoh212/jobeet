@@ -106,6 +106,18 @@ class jobActions extends sfActions
   	}
   
   	$this->jobs = JobeetJobPeer::getForLuceneQuery($query);
+  	
+  	if ($request->isXmlHttpRequest())
+  	{
+  		if ('*' == $query || !$this->jobs)
+  		{
+  			return $this->renderText('No results.');
+  		}
+  		else
+  		{
+  		return $this->renderPartial('job/list', array('jobs' => $this->jobs));
+     } 
   }
+}
 
 }
